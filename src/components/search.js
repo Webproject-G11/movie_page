@@ -1,16 +1,14 @@
-/*
+import ReactPaginate from "react-paginate";
+import { useEffect, useState } from "react";
+// import "./Search.css"; // Vaihda tiedoston nimi jos tarvitset oman tyylitiedoston
 
-import ReactPaginate from 'react-paginate';
-import './App.css';
-import { useEffect, useState } from 'react';
-
-function App() {
+const Search = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  const [query, setQuery] = useState('');
-  const [genre, setGenre] = useState('');
-  const [year, setYear] = useState('');
+  const [query, setQuery] = useState("");
+  const [genre, setGenre] = useState("");
+  const [year, setYear] = useState("");
 
   const genres = [
     { id: 28, name: "Action" },
@@ -34,29 +32,17 @@ function App() {
     { id: 37, name: "Western" },
   ];
 
-  const Movies = () => {
-    return (
-      <table>
-        {movies && movies.map((movie) => (
-          <tr key={movie.id}>
-            <td>{movie.title}</td>
-          </tr>
-        ))}
-      </table>
-    );
-  };
-
   const search = () => {
-    let url = '';
-    let endpoint = '';
+    let url = "";
+    let endpoint = "";
 
     if (query) {
       // Käytä 'search/movie' kun nimen haku on mukana
-      endpoint = 'search/movie';
+      endpoint = "search/movie";
       url = `https://api.themoviedb.org/3/${endpoint}?query=${query}&page=${page}`;
     } else {
       // Käytä 'discover/movie' kun nimiä ei haeta
-      endpoint = 'discover/movie';
+      endpoint = "discover/movie";
       url = `https://api.themoviedb.org/3/${endpoint}?include_adult=false&page=${page}`;
       if (genre) url += `&with_genres=${genre}`;
       if (year) url += `&primary_release_year=${year}`;
@@ -76,8 +62,12 @@ function App() {
         // Suodata nimen perusteella (jos genre tai vuosi lisätty)
         if (genre || year) {
           filteredMovies = filteredMovies.filter((movie) => {
-            const matchesGenre = genre ? movie.genre_ids.includes(Number(genre)) : true;
-            const matchesYear = year ? movie.release_date?.startsWith(year) : true;
+            const matchesGenre = genre
+              ? movie.genre_ids.includes(Number(genre))
+              : true;
+            const matchesYear = year
+              ? movie.release_date?.startsWith(year)
+              : true;
             return matchesGenre && matchesYear;
           });
         }
@@ -96,7 +86,7 @@ function App() {
 
   return (
     <div id="container">
-      <h3>Search movies</h3>
+      <h3>Search Movies</h3>
 
       <div>
         <label>Title:</label>
@@ -143,55 +133,15 @@ function App() {
         renderOnZeroPageCount={null}
       />
 
-      <Movies />
+      <table>
+        {movies && movies.map((movie) => (
+          <tr key={movie.id}>
+            <td>{movie.title}</td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
-}
+};
 
-export default App;
-*/
-
-
-
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';  
-import Search from './components/search';
-import Naytokset from './components/naytokset'
- 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Pääsivu */}
-        <Route
-          path="/"
-          element={
-            <div className="App">
-              <header className="App-header">
-                <h1>The best movie page</h1>
-              </header>
-              
-              <section className="App-section">
-                <h2>Tutustu tarjontaan</h2>
-                <Link to="/Naytokset">
-                  <button className="section-button">Hae näytöksiä</button>
-                </Link>
-                <Link to="/Search">
-                  <button className="section-button">Hae leffoja</button>
-                </Link>
-              </section>
-            </div>
-          }
-        />
- 
-        <Route path="/naytokset" element={<Naytokset/>} />
-        <Route path="/search" element={<Search/>} />
- 
-      </Routes>
-    </Router>
-  );
-}
- 
-export default App;
- 
+export default Search;
