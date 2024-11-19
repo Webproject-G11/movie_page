@@ -1,86 +1,69 @@
-
-
 #container {
-  margin: 2em;
+	margin: 2em;
 }
-
 ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
 }
-
 ul li {
-  width: 5em;
+	width: 5em;
 }
-
 li.selected {
-  color: red;
+	color: red;
 }
-
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #d6a3a3;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #d6a3a3;
 }
-
-/* Container, jossa näytökset näkyvät */
 .ajat {
-  display: flex;
-  flex-wrap: wrap; /* Sallii elementtien siirtymisen seuraavalle riville */
-  justify-content: flex-start; /* Keskittää sisällön vasemmalle */
-  padding: 20px;
-  gap: 15px; /* Lisää tilaa elementtien väliin */
-  list-style-type: none;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #37ad13;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Sallii vaakasuuntaisen vierityksen, jos sisältö menee leveämmäksi */
-  overflow-y: hidden; /* Ei näytä pystysuoraa vierityspalkkia */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 20px;
+	gap: 15px;
+	list-style-type: none;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #37ad13;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	overflow-x: auto;
 }
-
-/* Listan elementit */
 .ajat li {
-  padding: 10px;
-  margin: 5px;
-  width: 100%; /* 100% leveys estää päällekkäisyyksiä */
-  max-width: 200px; /* Maksimi leveys, jotta ne eivät veny liian leveiksi */
-  text-align: left;
-  font-size: 16px;
-  color: #333;
-  background-color: #399222;
-  border-radius: 4px;
-  box-sizing: border-box;
-  flex: 1 1 200px; /* Joustava elementti, joka voi kasvaa mutta ei ylitä 200px */
-  word-wrap: break-word; /* Estää tekstin venymistä */
-  min-width: 150px; /* Estää elementtejä menevästä liian pieniksi */
+	padding: 10px;
+	margin: 5px;
+	width: 100%;
+	max-width: 200px;
+	text-align: left;
+	font-size: 16px;
+	color: #333;
+	background-color: #399222;
+	border-radius: 4px;
+	box-sizing: border-box;
+	flex: 1 1 200px;
+	word-wrap: break-word;
+	min-width: 150px;
 }
-
-/* Parantaa select-elementin ulkoasua */
 select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #271e1e;
-  margin-bottom: 20px;
-  width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 4px;
+	border: 1px solid #271e1e;
+	margin-bottom: 20px;
+	width: 100%;
 }
-
-/* Parantaa yleistä ulkoasua */
 h3 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: center;
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 15px;
+	text-align: center;
 }
-
-/* Rajoita teattereiden näyttöjen ulkonäköä mobiililaitteilla */
 @media (max-width: 600px) {
-  .ajat li {
-    max-width: 100%; /* Pienemmillä näytöillä yksittäiset kohdat vievät koko leveys */
-  }
+	.ajat li {
+		max-width: 100%;
+	}
 }
