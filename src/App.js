@@ -47,6 +47,7 @@ function AppRoutes() {
       return () => clearTimeout(timer);
     }
   }, [logoutMessage]);
+
   const ProtectedRoute = ({ element }) => {
     if (!user.token) {
       return navigate("/authentication", { replace: true });
@@ -89,6 +90,18 @@ function AppRoutes() {
                     <button className="section-button">Search movies</button>
                   </Link>
                 </div>
+              </section>
+
+              {/* Lisää "Brows e Groups" -nappi vain etusivulle */}
+              <section className="App-section-groups">
+                <h2>Browse Groups</h2>
+                <Link to="/groups">
+                  <button className="section-button-gropus">Browse Groups</button>
+                </Link>
+              </section>
+
+              {/* Lisää TopMovies osio */}
+              <section className="App-section">
                 <TopMovies />
               </section>
             </div>
@@ -96,19 +109,19 @@ function AppRoutes() {
         />
         <Route path="/authentication" element={<Authentication />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/profile"element={<ProtectedRoute element={<Profile />} />}/>
+        <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/shows" element={<Shows />} />
         <Route path="/top-movies" element={<TopMoviesFull />} />
         <Route path="/reviews/:movieId" element={<ReviewPage />} />
         <Route path="/MovieDetails/:id" element={<MovieDetails />} />
-
-
-        <Route path="/groups" element={<ProtectedRoute element={<Groups />} />}
-        />
+        <Route path="/groups" element={<Groups />} />
       </Routes>
     </>
   );
 }
 
 export default App;
+
+
+
