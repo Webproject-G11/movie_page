@@ -1,6 +1,7 @@
 // reviewRouter.js
 import express from 'express';
 import { pool } from '../helpers/db.js'; // Käytetään tietokannan yhteyttä
+import { authenticateToken } from '../helpers/auth.js';
 
 const router = express.Router();
 
@@ -19,6 +20,7 @@ router.post("/reviews", async (req, res) => {
     res.status(500).send("Failed to add the review.");
   }
 });
+
 
 router.get('/reviews', async (req, res, next) => {
   const movieId = req.query.movie_id;  // Haetaan elokuvan ID kyselyparametrina

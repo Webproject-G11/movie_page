@@ -30,8 +30,6 @@ app.get('/', (req, res) => {
 
 app.post('/login', login);
 app.post('/register', register);
-
-// Päivitetty DELETE-reitti
 app.delete('/delete', (req, res) => {
   console.log('Request body:', req.body);
   deleteUser(req, res);

@@ -58,10 +58,6 @@ const MovieDetails = () => {
         <p><strong>Genres:</strong> {movie.genres.map(genre => genre.name).join(", ")}</p>
         <p><strong>Budget:</strong> ${movie.budget.toLocaleString()}</p>
         <p><strong>Revenue:</strong> ${movie.revenue.toLocaleString()}</p>
-        <p><strong>Popularity:</strong> {movie.popularity}</p>
-        <p><strong>Average Vote:</strong> {movie.vote_average} ({movie.vote_count} votes)</p>
-        <p><strong>Average Rating:</strong> {movie.vote_average} / 10</p>
-        <p><strong>Total Votes:</strong> {movie.vote_count}</p>
       </div>
 
       <div>

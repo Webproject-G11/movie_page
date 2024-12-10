@@ -11,6 +11,7 @@ import TopMovies from './components/topMovies';
 import TopMoviesFull from './components/TopMoviesFull';
 import UserProvider from './components/context/userProvider';
 import Groups from './components/groups';
+import UserReviewsPage from './components/userReviewsPage';
 import './App.css'
 
 function App() {
@@ -116,6 +117,7 @@ function AppRoutes() {
         <Route path="/reviews/:movieId" element={<ReviewPage />} />
         <Route path="/MovieDetails/:id" element={<MovieDetails />} />
         <Route path="/groups" element={<Groups />} />
+        <Route path="/user-reviews" element={<UserReviewsPage />} />
       </Routes>
     </>
   );

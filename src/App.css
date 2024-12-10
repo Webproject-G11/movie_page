@@ -5,6 +5,11 @@
 	color: #fff;
   }
   
+  /* Asetetaan Bangers fontti kaikille otsikoille */
+ h2, h3, h4, h5, h6 {
+	font-family: 'Bebas';
+  }
+  
   body {
 	background-color: #000;
 	color: #fff;
