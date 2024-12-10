@@ -21,7 +21,6 @@ router.post("/reviews", async (req, res) => {
   }
 });
 
-
 router.get('/reviews', async (req, res, next) => {
   const movieId = req.query.movie_id;  // Haetaan elokuvan ID kyselyparametrina
 
@@ -41,5 +40,6 @@ router.get('/reviews', async (req, res, next) => {
   }
 });
 
+export default router;
 
 export default router;

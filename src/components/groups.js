@@ -105,7 +105,6 @@ function Groups() {
           )}
         </div>
       </div>
-
       {/* Uuden ryhmän luominen */}
       {user.token && (
         <div className="input-container">
@@ -125,11 +124,5 @@ function Groups() {
   );
 }
 
+
 export default Groups;
-
-
-
-
-
-
-
