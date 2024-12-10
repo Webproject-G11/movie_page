@@ -149,7 +149,5 @@ const ReviewPage = () => {
     </div>
   );
 };
- 
+
 export default ReviewPage;
- 
- 

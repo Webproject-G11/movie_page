@@ -1,6 +1,7 @@
 // reviewRouter.js
 import express from 'express';
 import { pool } from '../helpers/db.js'; // Käytetään tietokannan yhteyttä
+import { authenticateToken } from '../helpers/auth.js';
 
 const router = express.Router();
 
@@ -39,8 +40,6 @@ router.get('/reviews', async (req, res, next) => {
   }
 });
 
-
 export default router;
 
-
-
+export default router;
