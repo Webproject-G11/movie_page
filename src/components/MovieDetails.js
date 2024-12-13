@@ -26,6 +26,7 @@ const MovieDetails = () => {
 
   const addToFavorites = async () => {
     if (!user || !user.user_id || !movie || !movie.id) {
+      alert("You must be logged in to add favorites.");
       console.error("Missing user or movie data");
       return;  
     }
@@ -43,12 +44,14 @@ const MovieDetails = () => {
           },
         }
       );
-  
       if (response.status === 200) {
+        alert("Added to favorite list.");
         console.log("Movie added to favorites:", response.data);
       }
     } catch (error) {
       console.error("Error adding movie to favorites:", error.response ? error.response.data : error.message);
+      alert("Failed to add movie to favorites.");
+
     }
   };
 
